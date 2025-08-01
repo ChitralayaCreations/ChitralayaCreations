@@ -27,6 +27,11 @@
   display: none; /* hidden until mouse enters */
 }
 
+/* Hide custom cursor inside mediaframe */
+.mediaframe:hover ~ .custom-cursor {
+  display: none !important;
+}
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -179,6 +184,9 @@ header .navbar ul li a:hover {
   #menu {
     display: block;
     color: white;
+  }
+  .custom-cursor{
+    display: none;
   }
   header .navbar {
     position: fixed;
@@ -490,7 +498,7 @@ header .navbar ul li a:hover {
   display: flex;
   gap: 6rem;
   overflow-x: auto;
-  padding-bottom: 17rem;
+  padding-bottom: 1rem;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
@@ -600,7 +608,7 @@ header .navbar ul li a:hover {
 /* education media ends*/
 
 .transition-image {
-  width: 15%;
+  width: 10%;
   display: flex;
   justify-content: center;
   position: relative;
@@ -611,20 +619,12 @@ header .navbar ul li a:hover {
 }
 
 .transition-image img {
-  max-width: 600px;
+  max-width: 400px;
   width: 100%;
   border-radius: 1rem;
   border-bottom-left-radius: 80px;
 border-bottom-right-radius: 80px;
   box-shadow: 0 8px 30px rgba(90, 88, 88, 0.3);
-}
-@media (max-width: 768px) {
-  .transition-image {
-    width: 40%;
-    margin-top: -50%;
-    margin-left: -10%;
-    margin-bottom: -60%;
-  }
 }
 
 
@@ -636,12 +636,31 @@ border-bottom-right-radius: 80px;
   padding: 6rem 2rem;
   font-family: 'Poppins', sans-serif;
 }
+.about .transition-image {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-left: 15%;
+  margin-top: -14%; /* adjust overlap */
+  z-index: 5;
+  margin-bottom: -20%;
+}
+
+.about .transition-image img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 1rem;
+  border-bottom-left-radius: 80px;
+border-bottom-right-radius: 80px;
+  box-shadow: 0 8px 30px rgba(90, 88, 88, 0.3);
+}
 
 .about .heading {
   font-size: 3.5rem;
   text-align: center;
   color: #ffffff;
-  margin-bottom: 16rem;
+  margin-bottom: 1rem;
   font-weight: 600;
   padding-left: 0%;
   margin-top: 5rem;
@@ -745,12 +764,17 @@ border-bottom-right-radius: 80px;
   .about {
     padding: 3rem 1rem;
   }
-
+  .about .transition-image {
+    width: 40%;
+    margin-left: -20%;
+    margin-bottom: -60%;
+  }
   .about .heading {
-    font-size: 2.2rem;
+    font-size: 3rem;
     text-align: center;
     padding-left: 0;
-    margin-top: 9rem;
+    margin-top: 11rem;
+    margin-bottom: 10rem;
   }
 
   .about .content h1 {
