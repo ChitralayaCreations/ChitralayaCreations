@@ -614,6 +614,8 @@ header .navbar ul li a:hover {
   max-width: 600px;
   width: 100%;
   border-radius: 1rem;
+  border-bottom-left-radius: 80px;
+border-bottom-right-radius: 80px;
   box-shadow: 0 8px 30px rgba(90, 88, 88, 0.3);
 }
 @media (max-width: 768px) {
