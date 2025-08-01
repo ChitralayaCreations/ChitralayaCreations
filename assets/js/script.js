@@ -50,6 +50,26 @@ document.addEventListener('visibilitychange',
     });
 
 });
+const customCursor = document.querySelector('.custom-cursor');
+const mediaFrame = document.querySelector('.mediaframe');
+
+// Show the cursor when mouse moves (except in mediaframe)
+document.addEventListener('mousemove', (e) => {
+  if (!mediaFrame.contains(e.target)) {
+    customCursor.style.display = 'block';
+    customCursor.style.left = e.clientX + 'px';
+    customCursor.style.top = e.clientY + 'px';
+  } else {
+    customCursor.style.display = 'none';
+  }
+});
+
+// Show cursor on click (even inside mediaframe)
+document.addEventListener('click', (e) => {
+  customCursor.style.display = 'block';
+  customCursor.style.left = e.clientX + 'px';
+  customCursor.style.top = e.clientY + 'px';
+});
 
 // Counter Animation on Scroll
 let countersAnimated = false;
