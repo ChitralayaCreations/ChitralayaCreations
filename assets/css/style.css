@@ -376,6 +376,7 @@ header .navbar ul li a:hover {
     #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   color: white; /* icon color */
 }
+
 .social-icons a:active,
 .social-icons a:focus,
 .social-icons a:hover {
@@ -391,9 +392,9 @@ header .navbar ul li a:hover {
 /* social icons end */
 
 /* hero media queries starts*/
-@media (max-width: 450px) {
+@media (max-width: 1050px) {
   .home .content h2 {
-    margin-top: 2rem;
+    margin-top: 9rem;
     font-size: 25px; /* or adjust as needed */
     color: rgb(255, 255, 255); /* Optional: ensure text remains visible */
     padding: 0.7rem;  /* Optional: spacing around text */
@@ -424,9 +425,17 @@ header .navbar ul li a:hover {
     margin-top: 12rem;
     margin-left: 2rem;
   }
+  .home .image {
+    margin-top: 2rem;
+  }
+
   .home .image img {
-    margin-top: -15rem;
-    width: 80%;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    border-radius: 4rem;
+    display: block;
+    margin: 0 auto;
   }
   .home .content p {
     font-size: 2rem;
@@ -436,7 +445,7 @@ header .navbar ul li a:hover {
     margin-left: 0;
   }
   .home .content h2{
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   .home .content p span {
     font-size: 2.2rem;
@@ -457,13 +466,16 @@ header .navbar ul li a:hover {
   margin-top: 0.5rem;
   font-style: 'Rajdhani';
 }
-.video-title {
+.video-title a{
   font-size:4rem;
-  color: #fff;
+  color: #ffffff;
   font-weight: bold;
   font-style: italic;
 }
-
+.video-title:hover {
+  transform: scale(1.1);
+  color: #c27a7a; /* Optional: changes color on hover */
+}
 
 .video-showcase .heading {
   color: #fff;
@@ -528,7 +540,7 @@ header .navbar ul li a:hover {
   width: 100%;
   height: 100px;
   overflow: hidden;
-  transform: scaleY(-1);
+  transform: scaleY(0);
   opacity: 0.2;
   filter: blur(4px);
   border-radius: 0 0 20px 20px;
@@ -718,7 +730,7 @@ border-bottom-right-radius: 80px;
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1050px) {
   .about {
     padding: 3rem 1rem;
   }
@@ -801,6 +813,7 @@ border-bottom-right-radius: 80px;
 .conect h1 {
   font-size: 3rem;
   font-weight: 600;
+  margin-top: 3%;
   letter-spacing: 2px;
   line-height: 1.1;
   color: #fff;
@@ -852,7 +865,8 @@ border-bottom-right-radius: 80px;
 }
 
 /* Social Icons */
-.social-icons span {
+.social-icons span a {
+  color: white;
   display: inline-block;
   margin-right: 2rem;
   font-size: 2.4rem; /* was 1.2rem */
@@ -939,8 +953,8 @@ border-bottom-right-radius: 80px;
   transition: all 0.3s ease;
 }
 .terms{ 
-  margin-top: 5rem;
   font-size: 1.6rem;
+  padding: 10rem;
 }
 
 .contact-form button:hover {
@@ -952,14 +966,13 @@ border-bottom-right-radius: 80px;
   text-align: center;
   padding: 2rem 0;
   color: #ccc;
-  margin-top: 3rem;
   font-size: 1.3rem;
   margin-bottom: -5rem;
 }
 
 
 /* Responsive styles */
-@media (max-width: 840px) {
+@media (max-width: 1050px) {
   .contact-container {
     flex-direction: column;
   }
@@ -968,6 +981,7 @@ border-bottom-right-radius: 80px;
     flex-direction: column;
   }
   .conect h1{
+    margin-top: 7%;
     font-size: 4rem;
   }
   .contact-heading h1 {
@@ -1005,7 +1019,9 @@ border-bottom-right-radius: 80px;
     margin-left: 3rem;
   }
   .terms{ 
-    font-size: 1.2rem;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    padding: 0%;
   }
   .contact-form button {
     align-self: center;
