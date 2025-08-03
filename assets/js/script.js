@@ -75,28 +75,30 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-const scroller = document.querySelector('.video-scroller');
-const leftBtn = document.querySelector('.scroll-btn.left');
-const rightBtn = document.querySelector('.scroll-btn.right');
+document.addEventListener("DOMContentLoaded", function () {
+  const scroller = document.querySelector('.video-scroller');
+  const leftBtn = document.querySelector('.scroll-btn.left');
+  const rightBtn = document.querySelector('.scroll-btn.right');
 
-// Select one card to measure its true width
-function getCardWidth() {
-  const card = document.querySelector('.video-card');
-  return card ? card.getBoundingClientRect().width : 0;
-}
+  // Select one card to measure its true width
+  function getCardWidth() {
+      const card = document.querySelector('.video-card');
+      return card ? card.getBoundingClientRect().width : 0;
+  }
 
-function scrollLeft() {
-  const amount = getCardWidth();
-  scroller.scrollBy({ left: -amount, behavior: 'smooth' });
-}
+  function scrollLeft() {
+      const amount = getCardWidth();
+      scroller.scrollBy({ left: -amount, behavior: 'smooth' });
+  }
 
-function scrollRight() {
-  const amount = getCardWidth();
-  scroller.scrollBy({ left: amount, behavior: 'smooth' });
-}
+  function scrollRight() {
+      const amount = getCardWidth();
+      scroller.scrollBy({ left: amount, behavior: 'smooth' });
+  }
 
-leftBtn.addEventListener('click', scrollLeft);
-rightBtn.addEventListener('click', scrollRight);
+  if (leftBtn) leftBtn.addEventListener('click', scrollLeft);
+  if (rightBtn) rightBtn.addEventListener('click', scrollRight);
+});
 
 
 
@@ -111,23 +113,22 @@ window.addEventListener('scroll', () => {
   }
 });
 
+/* ===== WHATSAPP FORM SUBMISSION ===== */
 document.getElementById('whatsappForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-  
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const requirement = document.getElementById('requirement').value;
-    const message = document.getElementById('message').value.trim();
-  
-    const whatsappNumber = "+919392733100"; // Replace with your number, e.g., 919876543210
-  
-    const fullMessage = `Hello, I'm ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${requirement}%0AMessage: ${message}`;
-  
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
-  
-    window.open(whatsappURL, '_blank');
-  });
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const requirement = document.getElementById('requirement').value;
+  const message = document.getElementById('message').value.trim();
+
+  const whatsappNumber = "+919392733100";
+  const fullMessage = `Hello, I'm ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${requirement}%0AMessage: ${message}`;
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
+
+  window.open(whatsappURL, '_blank');
+});
 
 
 
