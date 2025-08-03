@@ -50,48 +50,55 @@ document.addEventListener('visibilitychange',
     });
 
 });
-const customCursor = document.querySelector('.custom-cursor');
-const mediaFrame = document.querySelector('.mediaframe');
-
-// Show the cursor when mouse moves (except in mediaframe)
-document.addEventListener('mousemove', (e) => {
-  if (!mediaFrame.contains(e.target)) {
-    customCursor.style.display = 'block';
-    customCursor.style.left = e.clientX + 'px';
-    customCursor.style.top = e.clientY + 'px';
-  } else {
-    customCursor.style.display = 'none';
-  }
-});
-
-// Show cursor on click (even inside mediaframe)
-document.addEventListener('click', (e) => {
-  customCursor.style.display = 'block';
-  customCursor.style.left = e.clientX + 'px';
-  customCursor.style.top = e.clientY + 'px';
-});
-
-// Counter Animation on Scroll
-let countersAnimated = false;
 
 function animateCounters() {
   document.querySelectorAll('.count').forEach(counter => {
     const target = +counter.getAttribute('data-target');
-    let count = 1000;
+    let count = 0;
 
     const step = Math.ceil(target / 100);
+
     const update = () => {
       count += step;
+      counter.innerText = Math.min(count, target);
       if (count < target) {
-        counter.innerText = count;
         requestAnimationFrame(update);
-      } else {
-        counter.innerText = target;
       }
     };
+
     update();
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  animateCounters();
+});
+
+
+const scroller = document.querySelector('.video-scroller');
+const leftBtn = document.querySelector('.scroll-btn.left');
+const rightBtn = document.querySelector('.scroll-btn.right');
+
+// Select one card to measure its true width
+function getCardWidth() {
+  const card = document.querySelector('.video-card');
+  return card ? card.getBoundingClientRect().width : 0;
+}
+
+function scrollLeft() {
+  const amount = getCardWidth();
+  scroller.scrollBy({ left: -amount, behavior: 'smooth' });
+}
+
+function scrollRight() {
+  const amount = getCardWidth();
+  scroller.scrollBy({ left: amount, behavior: 'smooth' });
+}
+
+leftBtn.addEventListener('click', scrollLeft);
+rightBtn.addEventListener('click', scrollRight);
+
+
 
 window.addEventListener('scroll', () => {
   const stats = document.querySelector('.about-stats');
@@ -121,7 +128,8 @@ document.getElementById('whatsappForm').addEventListener('submit', function (e) 
   
     window.open(whatsappURL, '_blank');
   });
-  
+
+
 
 /* ===== SCROLL REVEAL ANIMATION ===== */
 const srtop = ScrollReveal({
