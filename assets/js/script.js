@@ -120,15 +120,24 @@ document.getElementById('whatsappForm').addEventListener('submit', function (e) 
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
   const phone = document.getElementById('phone').value.trim();
-  const requirement = document.getElementById('requirement').value;
+  const requirement = document.getElementById('requirement').value.trim();
   const message = document.getElementById('message').value.trim();
 
-  const whatsappNumber = "+919392733100";
-  const fullMessage = `Hello, I'm ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${requirement}%0AMessage: ${message}`;
-  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
+  // Construct the message
+  const fullMessage = `Hello, I'm ${name}
+Email: ${email}
+Phone: ${phone}
+Service: ${requirement}
+Message: ${message}`;
 
+  const encodedMessage = encodeURIComponent(fullMessage);
+  const whatsappNumber = "919392733100"; // Remove '+' from wa.me links
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+  // Open in new tab (desktop) or app (mobile)
   window.open(whatsappURL, '_blank');
 });
+
 
 
 
