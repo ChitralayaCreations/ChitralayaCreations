@@ -335,6 +335,39 @@ header .navbar ul li a:hover {
   height: 100%;
   width: 100%;
 }
+/* =======================
+   Lightbox Styles
+======================= */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.lightbox-video {
+  margin-top: 5%;
+  max-width: 100%;
+  max-height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  font-size: 6rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
 .contact-footer {
   position: absolute;
   bottom: 2rem;
@@ -346,16 +379,51 @@ header .navbar ul li a:hover {
   z-index: 5;
 }
 
-/* Responsive media queries */
-@media (max-width: 1024px) {
+@media only screen and (max-width: 1366px) {
+  .video-title {
+    font-size: 2rem;
+  }
+
+  .video-subtitle {
+    font-size: 1.6rem;
+  }
+
+  .video-overlay-text {
+    left: 15%;
+    bottom: 8%;
+  }
+
+  .scroll-btn {
+    font-size: 1.8rem;
+    padding: 2rem;
+    width: 6%;
+  }
+  .lightbox-video {
+    max-width: 85%;
+    max-height: 75%;
+  }
+}
+
+/* Portrait Mobile (e.g., 390x844) */
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  header {
+    height: 10rem;
+    padding: 0.5rem 5rem;
+  }
+
+  .logo {
+    width: 60px;
+  }
   .video-scroller {
-    width: 250%;
+    width: 100%;
   }
 
   .video-card {
     width: 100%;
   }
-
+  .home-title{
+    display: none;
+  }
   .video-title {
     font-size: 2rem;
   }
@@ -368,12 +436,75 @@ header .navbar ul li a:hover {
     left: 20%;
     margin-top: -6%;
   }
+
   .scroll-btn{
-    
-  padding: 3rem;
+    padding: 3rem;
     border-radius: 50%;
     font-size: 2rem;
     width: 5%;
     height: auto;
+  }
+
+  .lightbox-video {
+    max-width: 90%;
+    max-height: 70%;
+  }
+
+  .lightbox .close {
+    font-size: 3rem;
+    top: 10px;
+    right: 15px;
+  }
+}
+
+/* Landscape Mobile (e.g., 844x390) */
+@media only screen and (max-height: 500px) and (orientation: landscape) {
+  body,
+  html {
+    overflow-x: none;
+    overflow-y: none;
+    height: 100%;
+  }
+
+  header {
+    height: 50px;
+    padding: 0rem 6rem;
+  }
+
+  .logo {
+    width: 50px;
+  }
+
+  .video-title {
+    font-size: 3rem;
+  }
+  .video-scroller .video-wrapper{
+    width: 90%;
+  }
+  .video-subtitle {
+    font-size: 2rem;
+  }
+
+  .video-overlay-text {
+    left: 20%;
+    margin-top: -6%;
+  }
+
+  .scroll-btn{
+    padding: 3rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    width: 5%;
+    height: auto;
+  }
+  .lightbox-video {
+    max-width: 85%;
+    max-height: 60%;
+  }
+
+  .lightbox .close {
+    font-size: 3rem;
+    top: 10px;
+    right: 15px;
   }
 }

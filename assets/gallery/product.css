@@ -335,8 +335,10 @@ header .navbar ul li a:hover {
       margin-left: -2%;
     }
     .gallery-grid {
-      column-count: 1;
+      column-count: 2;
       margin-left: 10%;
+      padding: 0rem;
+      column-gap: 2rem;
     }
     .gallery-grid img {
       width: 100%;
