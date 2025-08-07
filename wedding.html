@@ -73,9 +73,46 @@
       </div>
     </div>
     <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
+    
+    <div class="lightbox" id="lightbox">
+      <span class="close" id="lightbox-close">&times;</span>
+      <video class="lightbox-video" id="lightbox-video" controls autoplay controlsList="nodownload" disablePictureInPicture oncontextmenu="return false;"></video>       
+    </div>
+
     <div class="contact-footer">
       <p>Copyright © 2025 Chitralaya Creations</p>
     </div>
+    <!-- Place this at the end of your HTML -->
+    <script>
+      const lightbox = document.getElementById('lightbox');
+      const lightboxVideo = document.getElementById('lightbox-video');
+      const lightboxClose = document.getElementById('lightbox-close');
+    
+      // Trigger only on video click
+      document.querySelectorAll('.video-wrapper video').forEach(video => {
+        video.addEventListener('click', () => {
+          lightboxVideo.src = video.currentSrc;
+          lightbox.style.display = 'flex';
+          lightboxVideo.play();
+        });
+      });
+    
+      lightboxClose.addEventListener('click', () => {
+        closeLightbox();
+      });
+    
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+    
+      function closeLightbox() {
+        lightbox.style.display = 'none';
+        lightboxVideo.pause();
+        lightboxVideo.src = '';
+      }
+    </script>
   </section>
 <!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
 <!-- jquery cdn -->
